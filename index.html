@@ -109,7 +109,7 @@
 <header>
   <div class="wrap nav">
     <div class="brand"><span class="logo">🚗</span>Simulado CNH 2026</div>
-    <a class="nav-cta" href="https://play.google.com/store/apps/details?id=br.com.simuladocnh.app">Baixar</a>
+    <a class="nav-cta" href="#baixar">Baixar</a>
   </div>
 </header>
 
@@ -119,11 +119,8 @@
     <h1>Passe na prova do <span>DETRAN</span> de primeira</h1>
     <p class="sub">Simulados que sorteiam questões novas a cada tentativa, explicação de cada resposta e tudo funcionando sem internet. Treine no seu ritmo, direto do celular.</p>
     <div class="cta-row">
-      <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=br.com.simuladocnh.app">▶ Baixar no Google Play</a>
-      <!-- Ativar quando sair da revisão da Apple:
-      <a class="btn btn-primary" href="https://apps.apple.com/app/idXXXXXXXXX"> Baixar na App Store</a>
-      -->
-      <span class="btn btn-soon">🍎 <span class="soon-text">Baixar na App Store<small>em breve — app em revisão na Apple</small></span></span>
+      <span class="btn btn-soon" data-loja="android">▶ <span class="soon-text">Baixar no Google Play<small>em breve — app em revisão no Google</small></span></span>
+      <span class="btn btn-soon" data-loja="ios">🍎 <span class="soon-text">Baixar na App Store<small>em breve — app em revisão na Apple</small></span></span>
     </div>
     <p class="store-note">Grátis para baixar · Android</p>
   </div>
@@ -164,14 +161,11 @@
 <section id="baixar">
   <div class="wrap">
     <div class="download-box">
-      <h2>Comece a treinar agora mesmo</h2>
+      <h2 id="baixar">Comece a treinar agora mesmo</h2>
       <p>É grátis para baixar. Atualizado com a Resolução CONTRAN 1.020/2025.</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=br.com.simuladocnh.app">▶ Baixar no Google Play</a>
-        <!-- Ativar quando sair da revisão da Apple:
-        <a class="btn btn-primary" href="https://apps.apple.com/app/idXXXXXXXXX"> Baixar na App Store</a>
-        -->
-        <span class="btn btn-soon">🍎 <span class="soon-text">Baixar na App Store<small>em breve — app em revisão na Apple</small></span></span>
+        <span class="btn btn-soon" data-loja="android">▶ <span class="soon-text">Baixar no Google Play<small>em breve — app em revisão no Google</small></span></span>
+        <span class="btn btn-soon" data-loja="ios">🍎 <span class="soon-text">Baixar na App Store<small>em breve — app em revisão na Apple</small></span></span>
       </div>
       <p class="store-note">Disponível para Android agora · iOS em breve</p>
     </div>
@@ -208,5 +202,48 @@
   </div>
 </footer>
 
+
+<!-- ══════════════════════════════════════════════════════════════════
+     A CHAVE DAS LOJAS - e' so isto que muda no dia da aprovacao.
+     Vire para true a loja que entrou no ar e publique. Mais nada.
+
+     Por que os botoes NASCEM como "em breve" no HTML e o script os SOBE
+     para link real (e nao o contrario): se o JS falhar, o visitante ve
+     "em breve" - que e' a verdade - em vez de um botao que leva a uma
+     pagina de loja inexistente. Link de loja que da 404 queima o
+     contato, e so existe uma primeira impressao por pessoa.
+     ══════════════════════════════════════════════════════════════════ -->
+<script>
+  var LOJAS = {
+    android: false,   /* <- true quando o Google aprovar */
+    ios:     false    /* <- true quando a Apple aprovar  */
+  };
+
+  var LINKS = {
+    android: 'https://play.google.com/store/apps/details?id=br.com.simuladocnh.app',
+    ios:     'https://apps.apple.com/br/app/id6808901256'
+  };
+  var ROTULOS = { android: '▶ Baixar no Google Play', ios: '🍎 Baixar na App Store' };
+
+  document.querySelectorAll('[data-loja]').forEach(function (el) {
+    var loja = el.getAttribute('data-loja');
+    if (!LOJAS[loja]) return;
+    var a = document.createElement('a');
+    a.className = 'btn btn-primary';
+    a.href = LINKS[loja];
+    a.textContent = ROTULOS[loja];
+    el.parentNode.replaceChild(a, el);
+  });
+
+  var nota = document.querySelector('.store-note');
+  if (nota) {
+    var ondes = [];
+    if (LOJAS.android) ondes.push('Android');
+    if (LOJAS.ios) ondes.push('iPhone');
+    nota.textContent = ondes.length
+      ? 'Grátis para baixar - ' + ondes.join(' e ')
+      : 'Grátis para baixar - chegando ao Android e ao iPhone';
+  }
+</script>
 </body>
 </html>
