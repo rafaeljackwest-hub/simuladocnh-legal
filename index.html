@@ -2,23 +2,36 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<style>body{background:#F4F7FE}</style>
+<!-- Redirecionamento silencioso do espelho do GitHub Pages para o endereco oficial.
+     So' dispara quando o HOST desta pagina e' o do GitHub Pages; no endereco
+     oficial (worldinstories.com) o host nao bate e nada acontece. Reversivel:
+     se a VPS um dia cair, e' so' apagar este bloco. -->
+<script>
+  if (location.hostname === 'rafaeljackwest-hub.github.io') {
+    location.replace('https://worldinstories.com/simulado-cnh/' + location.hash);
+  }
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#2743C7">
+<meta name="theme-color" content="#0F0F14">
 <title>Simulado CNH 2026 — Passe na prova do DETRAN de primeira</title>
 <meta name="description" content="Simulado CNH atualizado com a nova regra 2026: mais de 3.000 questões, 9 matérias, placas oficiais e 100% offline. Baixe grátis.">
-<link rel="canonical" href="https://rafaeljackwest-hub.github.io/simuladocnh-legal/">
+<link rel="canonical" href="https://worldinstories.com/simulado-cnh/">
 <meta property="og:title" content="Simulado CNH 2026 — Passe na prova do DETRAN de primeira">
 <meta property="og:description" content="Mais de 3.000 questões atualizadas, 9 matérias, placas oficiais e 100% offline. Baixe grátis e treine com a nova regra do DETRAN.">
-<meta property="og:image" content="https://rafaeljackwest-hub.github.io/simuladocnh-legal/og.png">
-<meta property="og:url" content="https://rafaeljackwest-hub.github.io/simuladocnh-legal/">
+<meta property="og:image" content="https://worldinstories.com/simulado-cnh/og.png">
+<meta property="og:url" content="https://worldinstories.com/simulado-cnh/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --blue:#4A6CF7; --blue-dark:#2743C7; --green:#34A853; --yellow:#FFCD29;
-    --bg:#F4F7FE; --ink:#16213E; --muted:#5A6685; --card:#FFFFFF; --border:#E3E9FB;
+    --bg:#0F0F14; --surface:#1B1B23; --surface2:#23232E;
+    --ink:#F2EFE9; --muted:#A9A395;
+    --gold:#E3B23C; --gold-soft:#F0C169; --gold-ink:#2A2008;
+    --border:rgba(227,178,60,.18); --radius:24px;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -27,90 +40,93 @@
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
     line-height:1.55; -webkit-font-smoothing:antialiased;
   }
-  a{color:inherit; text-decoration:none}
+  h1,h2,h3,.serif{font-family:"Lora",Georgia,serif}
+  a{color:var(--gold-soft); text-decoration:none}
   .wrap{max-width:960px; margin:0 auto; padding:0 20px}
-  section{padding:52px 0}
+  section{padding:56px 0}
 
-  header{padding:18px 0; border-bottom:1px solid var(--border); background:#FFFFFF}
+  header{position:sticky; top:0; z-index:50; padding:18px 0; background:rgba(15,15,20,.82); backdrop-filter:blur(12px); border-bottom:1px solid rgba(255,255,255,.06)}
   .nav{display:flex; align-items:center; gap:10px}
-  .brand{display:flex; align-items:center; gap:10px; font-weight:800; font-size:1.05rem; color:var(--blue-dark)}
-  .brand .logo{width:36px; height:36px; border-radius:10px; background:linear-gradient(135deg,var(--blue),var(--blue-dark)); display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0}
-  .nav-cta{margin-left:auto; background:var(--green); color:#fff; font-weight:700; padding:9px 16px; border-radius:999px; font-size:.88rem; white-space:nowrap}
+  .brand{display:flex; align-items:center; gap:10px; font-family:"Lora",serif; font-weight:700; font-size:1.05rem; color:var(--ink)}
+  .brand .logo{width:36px; height:36px; border-radius:10px; background:linear-gradient(135deg,var(--gold-soft),var(--gold)); display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0}
+  .nav-cta{margin-left:auto; background:linear-gradient(135deg,var(--gold-soft),var(--gold)); color:var(--gold-ink); font-weight:700; padding:9px 16px; border-radius:999px; font-size:.88rem; white-space:nowrap}
 
-  .hero{padding:44px 0 12px; text-align:center}
+  .hero{padding:52px 0 16px; text-align:center; background:linear-gradient(180deg, rgba(227,178,60,.09) 0%, var(--bg) 65%)}
   .selo{
-    display:inline-flex; align-items:center; gap:8px; background:#FFF6DA; border:1px solid #FFE28F;
-    color:#8A6300; font-weight:700; font-size:.82rem; padding:9px 16px; border-radius:999px; margin-bottom:20px;
+    display:inline-flex; align-items:center; gap:8px; background:rgba(227,178,60,.12); border:1px solid var(--border);
+    color:var(--gold-soft); font-weight:700; font-size:.82rem; padding:9px 16px; border-radius:999px; margin-bottom:20px;
   }
-  h1{font-size:clamp(1.8rem,6vw,2.6rem); font-weight:800; line-height:1.18; color:var(--ink); margin-bottom:14px}
-  h1 span{color:var(--blue-dark)}
+  h1{font-size:clamp(1.8rem,6vw,2.6rem); font-weight:600; line-height:1.2; color:var(--ink); margin-bottom:14px}
+  h1 span{color:var(--gold)}
   .hero .sub{color:var(--muted); font-size:clamp(1rem,3vw,1.15rem); max-width:560px; margin:0 auto 28px}
 
   .cta-row{display:flex; flex-direction:column; gap:12px; align-items:center; margin-bottom:10px}
   .btn{
     display:inline-flex; align-items:center; justify-content:center; gap:10px;
-    padding:16px 26px; border-radius:16px; font-weight:800; font-size:1.02rem;
-    width:100%; max-width:340px;
+    padding:16px 26px; border-radius:16px; font-weight:700; font-size:1.02rem;
+    width:100%; max-width:340px; transition:transform .15s ease;
   }
-  .btn-primary{background:var(--green); color:#fff; box-shadow:0 10px 26px rgba(52,168,83,.30)}
-  .btn-soon{background:#EDEFF7; color:var(--muted); border:1px dashed #C7CEE8; cursor:default}
-  /* pisca-pisca: so' o botao da loja que esta' no ar pulsa (o "em breve" fica quieto) */
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary{background:linear-gradient(135deg,var(--gold-soft),var(--gold)); color:var(--gold-ink); box-shadow:0 10px 26px rgba(227,178,60,.28)}
+  .btn-soon{background:rgba(255,255,255,.04); color:var(--muted); border:1px dashed rgba(255,255,255,.16); cursor:default}
+  /* pisca-pisca: so' o botao com link de verdade pulsa */
   .btn-primary.pulsa{position:relative; animation:pulsa-btn 1.6s ease-in-out infinite}
   .btn-primary.pulsa::after{
     content:''; position:absolute; inset:-6px; border-radius:20px; pointer-events:none;
-    border:3px solid currentColor; opacity:0; animation:pulsa-anel 1.6s ease-out infinite;
+    border:3px solid var(--gold); opacity:0; animation:pulsa-anel 1.6s ease-out infinite;
   }
   @keyframes pulsa-btn{0%,100%{transform:scale(1)} 50%{transform:scale(1.045)}}
   @keyframes pulsa-anel{0%{transform:scale(.92); opacity:.55} 100%{transform:scale(1.12); opacity:0}}
   @media (prefers-reduced-motion:reduce){.btn-primary.pulsa, .btn-primary.pulsa::after{animation:none}}
-  .soon-text{display:flex; flex-direction:column; text-align:left; line-height:1.3}
-  .soon-text small{font-weight:600; font-size:.72rem; opacity:.85; margin-top:2px}
   .store-note{color:var(--muted); font-size:.82rem}
+  .store-alt{display:inline-block; margin-top:10px; font-size:.85rem; font-weight:700; color:var(--gold-soft)}
+  .store-links-row{display:flex; gap:18px; justify-content:center; flex-wrap:wrap; width:100%}
+  .store-links-row a{font-weight:700; font-size:.92rem; text-decoration:underline; color:var(--gold-soft)}
 
-  .stats{background:#fff; border-top:1px solid var(--border); border-bottom:1px solid var(--border)}
+  .stats{background:var(--surface); border-top:1px solid rgba(255,255,255,.06); border-bottom:1px solid rgba(255,255,255,.06)}
   .stats .wrap{display:grid; grid-template-columns:repeat(2,1fr); gap:22px; padding-top:30px; padding-bottom:30px; text-align:center}
   @media(min-width:640px){.stats .wrap{grid-template-columns:repeat(4,1fr)}}
-  .stat b{display:block; font-size:1.5rem; color:var(--blue-dark); font-weight:800}
+  .stat b{display:block; font-size:1.5rem; color:var(--gold-soft); font-weight:700}
   .stat span{color:var(--muted); font-size:.82rem}
 
-  .kicker{color:var(--blue-dark); font-size:.8rem; letter-spacing:.08em; text-transform:uppercase; font-weight:800; text-align:center; margin-bottom:10px}
-  h2.title{font-size:clamp(1.5rem,4vw,2rem); font-weight:800; text-align:center; margin-bottom:12px}
+  .kicker{color:var(--gold); font-size:.8rem; letter-spacing:.08em; text-transform:uppercase; font-weight:700; text-align:center; margin-bottom:10px}
+  h2.title{font-size:clamp(1.5rem,4vw,2rem); font-weight:600; text-align:center; margin-bottom:12px}
   p.lead{color:var(--muted); text-align:center; max-width:560px; margin:0 auto 34px}
 
   .grid{display:grid; grid-template-columns:1fr; gap:16px}
   @media(min-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
   @media(min-width:900px){.grid{grid-template-columns:repeat(3,1fr)}}
-  .card{background:var(--card); border:1px solid var(--border); border-radius:18px; padding:22px}
+  .card{background:var(--surface); border:1px solid rgba(255,255,255,.05); border-radius:var(--radius); padding:22px; transition:border-color .2s, transform .2s}
+  .card:hover{border-color:var(--border); transform:translateY(-3px)}
   .card .emoji{font-size:1.7rem; display:block; margin-bottom:10px}
-  .card h3{font-size:1.02rem; margin-bottom:6px; color:var(--ink)}
+  .card h3{font-size:1.02rem; margin-bottom:6px; color:var(--gold-soft)}
   .card p{color:var(--muted); font-size:.9rem}
 
-  .social{background:#fff; border-top:1px solid var(--border); border-bottom:1px solid var(--border)}
+  .social{background:var(--surface); border-top:1px solid rgba(255,255,255,.06); border-bottom:1px solid rgba(255,255,255,.06)}
   .social .box{max-width:620px; margin:0 auto; text-align:center}
   .social .box p{color:var(--muted); font-size:1.02rem}
   .social .box strong{color:var(--ink)}
 
   .download-box{
-    background:linear-gradient(150deg,var(--blue) 0%, var(--blue-dark) 100%);
-    border-radius:22px; padding:40px 24px; text-align:center; color:#fff;
+    background:linear-gradient(150deg,var(--surface) 0%, #201a10 100%);
+    border:1px solid var(--border); border-radius:var(--radius); padding:40px 24px; text-align:center; color:var(--ink);
   }
-  .download-box h2{font-size:clamp(1.4rem,4vw,1.9rem); font-weight:800; margin-bottom:10px}
-  .download-box p{opacity:.92; margin-bottom:26px}
-  .download-box .cta-row .btn-primary{background:var(--yellow); color:#3A2900; box-shadow:0 10px 26px rgba(0,0,0,.18)}
-  .download-box .btn-soon{background:rgba(255,255,255,.14); color:#fff; border:1px dashed rgba(255,255,255,.4)}
-  .download-box .store-note{color:rgba(255,255,255,.85)}
+  .download-box h2{font-size:clamp(1.4rem,4vw,1.9rem); font-weight:600; margin-bottom:10px}
+  .download-box p{color:var(--muted); margin-bottom:26px}
+  .download-box .store-note{color:var(--muted)}
 
-  .instrutores{background:#F0F4FF}
-  .instrutores .box{background:#fff; border:1px solid var(--border); border-radius:20px; padding:32px 24px; max-width:640px; margin:0 auto; text-align:center}
+  .instrutores{background:var(--bg)}
+  .instrutores .box{background:var(--surface); border:1px solid rgba(255,255,255,.05); border-radius:20px; padding:32px 24px; max-width:640px; margin:0 auto; text-align:center}
   .instrutores .box .emoji{font-size:2rem; margin-bottom:12px; display:block}
-  .instrutores .box h2{font-size:1.4rem; font-weight:800; margin-bottom:10px}
+  .instrutores .box h2{font-size:1.4rem; font-weight:600; margin-bottom:10px}
   .instrutores .box p{color:var(--muted); margin-bottom:20px}
-  .btn-outline{display:inline-flex; padding:13px 24px; border-radius:14px; border:2px solid var(--blue-dark); color:var(--blue-dark); font-weight:800}
+  .btn-outline{display:inline-flex; padding:13px 24px; border-radius:14px; border:2px solid var(--gold); color:var(--gold-soft); font-weight:700}
 
-  footer{padding:36px 0 44px; color:var(--muted); font-size:.84rem; border-top:1px solid var(--border)}
+  footer{padding:36px 0 44px; color:var(--muted); font-size:.84rem; border-top:1px solid rgba(255,255,255,.06)}
   .foot-links{display:flex; gap:18px; flex-wrap:wrap; justify-content:center; margin-bottom:16px}
-  .foot-links a{color:var(--blue-dark); font-weight:600}
+  .foot-links a{color:var(--gold-soft); font-weight:600}
   footer p{text-align:center; max-width:640px; margin:0 auto 8px}
+  footer a{color:var(--gold-soft)}
 </style>
 </head>
 <body>
@@ -128,10 +144,9 @@
     <h1>Passe na prova do <span>DETRAN</span> de primeira</h1>
     <p class="sub">Simulados que sorteiam questões novas a cada tentativa, explicação de cada resposta e tudo funcionando sem internet. Treine no seu ritmo, direto do celular.</p>
     <div class="cta-row">
-      <span class="btn btn-soon" data-loja="android">▶ <span class="soon-text">Baixar no Google Play<small>em breve — app em revisão no Google</small></span></span>
-      <span class="btn btn-soon" data-loja="ios">🍎 <span class="soon-text">Baixar na App Store<small>em breve — app em revisão na Apple</small></span></span>
+      <a class="btn btn-primary pulsa" id="cta-hero" href="https://apps.apple.com/br/app/id6808901256">Baixar grátis</a>
     </div>
-    <p class="store-note">Grátis para baixar · Android</p>
+    <p class="store-note">Grátis para baixar · iPhone agora, Android em breve</p>
   </div>
 </section>
 
@@ -170,13 +185,12 @@
 <section id="baixar">
   <div class="wrap">
     <div class="download-box">
-      <h2 id="baixar">Comece a treinar agora mesmo</h2>
+      <h2>Comece a treinar agora mesmo</h2>
       <p>É grátis para baixar. Atualizado com a Resolução CONTRAN 1.020/2025.</p>
       <div class="cta-row">
-        <span class="btn btn-soon" data-loja="android">▶ <span class="soon-text">Baixar no Google Play<small>em breve — app em revisão no Google</small></span></span>
-        <span class="btn btn-soon" data-loja="ios">🍎 <span class="soon-text">Baixar na App Store<small>em breve — app em revisão na Apple</small></span></span>
+        <a class="btn btn-primary pulsa" id="cta-baixar" href="https://apps.apple.com/br/app/id6808901256">Baixar grátis</a>
       </div>
-      <p class="store-note">Disponível para Android agora · iOS em breve</p>
+      <p class="store-note">Grátis para baixar · iPhone agora, Android em breve</p>
     </div>
   </div>
 </section>
@@ -195,8 +209,8 @@
 <footer>
   <div class="wrap">
     <div class="foot-links">
-      <a href="/privacidade.html">Política de Privacidade</a>
-      <a href="/termos.html">Termos de Uso</a>
+      <a href="privacidade.html">Política de Privacidade</a>
+      <a href="termos.html">Termos de Uso</a>
       <a href="mailto:contatosimuladocnh@gmail.com">Contato</a>
     </div>
     <p><strong>Fontes oficiais das informações de trânsito:</strong>
@@ -214,45 +228,108 @@
 
 <!-- ══════════════════════════════════════════════════════════════════
      A CHAVE DAS LOJAS - e' so isto que muda no dia da aprovacao.
-     Vire para true a loja que entrou no ar e publique. Mais nada.
+     Vire "android: true" abaixo quando o Google aprovar, e publique.
+     Botao, nota e link unico se recalculam sozinhos - mais nada precisa mudar.
 
-     Por que os botoes NASCEM como "em breve" no HTML e o script os SOBE
-     para link real (e nao o contrario): se o JS falhar, o visitante ve
-     "em breve" - que e' a verdade - em vez de um botao que leva a uma
-     pagina de loja inexistente. Link de loja que da 404 queima o
-     contato, e so existe uma primeira impressao por pessoa.
+     Por que o botao NASCE apontando pra loja que ja esta' no ar (App Store)
+     direto no HTML, em vez de nascer neutro: se o JS falhar, o visitante
+     ainda cai num link que funciona - a verdade de hoje - em vez de um
+     botao morto. O script so' AJUSTA esse destino pelo aparelho de quem
+     esta' vendo a pagina.
      ══════════════════════════════════════════════════════════════════ -->
 <script>
   var LOJAS = {
     android: false,   /* <- true quando o Google aprovar */
-    ios:     true     /* aprovada 18/09/2026 - 1.0 na App Store */
+    ios:     true      /* aprovada 18/09/2026 - 1.0 na App Store */
   };
 
   var LINKS = {
     android: 'https://play.google.com/store/apps/details?id=br.com.simuladocnh.app',
     ios:     'https://apps.apple.com/br/app/id6808901256'
   };
-  var ROTULOS = { android: '▶ Baixar no Google Play', ios: '🍎 Baixar na App Store' };
+  var ROTULOS = { android: 'Baixar no Google Play', ios: 'Baixar na App Store' };
+  var NOMES   = { android: 'Android', ios: 'iPhone' };
 
-  document.querySelectorAll('[data-loja]').forEach(function (el) {
-    var loja = el.getAttribute('data-loja');
-    if (!LOJAS[loja]) return;
-    var a = document.createElement('a');
-    a.className = 'btn btn-primary pulsa';
-    a.href = LINKS[loja];
-    a.textContent = ROTULOS[loja];
-    el.parentNode.replaceChild(a, el);
-  });
-
-  var nota = document.querySelector('.store-note');
-  if (nota) {
-    var ondes = [];
-    if (LOJAS.android) ondes.push('Android');
-    if (LOJAS.ios) ondes.push('iPhone');
-    nota.textContent = ondes.length
-      ? 'Grátis para baixar - ' + ondes.join(' e ')
-      : 'Grátis para baixar - chegando ao Android e ao iPhone';
+  function detectaAparelho() {
+    var ua = navigator.userAgent || '';
+    var uaData = navigator.userAgentData;
+    if (/Android/i.test(ua) || (uaData && /Android/i.test(uaData.platform || ''))) return 'android';
+    if (/iPhone|iPad|iPod/i.test(ua)) return 'ios';
+    if (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) return 'ios'; // iPad moderno se identifica como Mac
+    return null; // desktop ou aparelho nao identificado
   }
+
+  function lojaViva(chave) { return LOJAS[chave] === true; }
+
+  function montaBotaoAtivo(el, loja) {
+    el.className = 'btn btn-primary pulsa';
+    el.href = LINKS[loja];
+    el.textContent = 'Baixar grátis';
+  }
+
+  function montaBotaoSoon(el, texto) {
+    el.className = 'btn btn-soon';
+    el.removeAttribute('href');
+    el.setAttribute('aria-disabled', 'true');
+    el.textContent = texto;
+  }
+
+  function insereAltLink(el, lojaAlternativa) {
+    var a = document.createElement('a');
+    a.className = 'store-alt';
+    a.href = LINKS[lojaAlternativa];
+    a.textContent = 'Já disponível no ' + NOMES[lojaAlternativa];
+    el.insertAdjacentElement('afterend', a);
+  }
+
+  function montaLinhaMulti(el, lojas) {
+    var row = document.createElement('div');
+    row.className = 'store-links-row';
+    lojas.forEach(function (loja) {
+      var a = document.createElement('a');
+      a.href = LINKS[loja];
+      a.textContent = ROTULOS[loja];
+      row.appendChild(a);
+    });
+    el.parentNode.replaceChild(row, el);
+  }
+
+  (function renderizaCTAs() {
+    var aparelho = detectaAparelho(); // 'android' | 'ios' | null (desktop/outros)
+
+    ['cta-hero', 'cta-baixar'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (!el) return;
+
+      if (aparelho === 'android' || aparelho === 'ios') {
+        if (lojaViva(aparelho)) {
+          montaBotaoAtivo(el, aparelho);
+        } else {
+          montaBotaoSoon(el, 'Chegando em breve no ' + NOMES[aparelho]);
+          var outra = aparelho === 'android' ? 'ios' : 'android';
+          if (lojaViva(outra)) insereAltLink(document.getElementById(id), outra);
+        }
+        return;
+      }
+
+      // desktop / aparelho nao identificado
+      var vivas = Object.keys(LOJAS).filter(lojaViva);
+      if (vivas.length === 1) {
+        montaBotaoAtivo(el, vivas[0]);
+      } else if (vivas.length === 0) {
+        montaBotaoSoon(el, 'Chegando em breve');
+      } else {
+        montaLinhaMulti(el, vivas);
+      }
+    });
+
+    var nota = 'Chegando ao iPhone e ao Android';
+    if (lojaViva('android') && lojaViva('ios')) nota = 'Grátis para baixar · iPhone e Android';
+    else if (lojaViva('ios')) nota = 'Grátis para baixar · iPhone agora, Android em breve';
+    else if (lojaViva('android')) nota = 'Grátis para baixar · Android agora, iPhone em breve';
+
+    document.querySelectorAll('.store-note').forEach(function (el) { el.textContent = nota; });
+  })();
 </script>
 </body>
 </html>
