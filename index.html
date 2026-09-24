@@ -54,6 +54,15 @@
   }
   .btn-primary{background:var(--green); color:#fff; box-shadow:0 10px 26px rgba(52,168,83,.30)}
   .btn-soon{background:#EDEFF7; color:var(--muted); border:1px dashed #C7CEE8; cursor:default}
+  /* pisca-pisca: so' o botao da loja que esta' no ar pulsa (o "em breve" fica quieto) */
+  .btn-primary.pulsa{position:relative; animation:pulsa-btn 1.6s ease-in-out infinite}
+  .btn-primary.pulsa::after{
+    content:''; position:absolute; inset:-6px; border-radius:20px; pointer-events:none;
+    border:3px solid currentColor; opacity:0; animation:pulsa-anel 1.6s ease-out infinite;
+  }
+  @keyframes pulsa-btn{0%,100%{transform:scale(1)} 50%{transform:scale(1.045)}}
+  @keyframes pulsa-anel{0%{transform:scale(.92); opacity:.55} 100%{transform:scale(1.12); opacity:0}}
+  @media (prefers-reduced-motion:reduce){.btn-primary.pulsa, .btn-primary.pulsa::after{animation:none}}
   .soon-text{display:flex; flex-direction:column; text-align:left; line-height:1.3}
   .soon-text small{font-weight:600; font-size:.72rem; opacity:.85; margin-top:2px}
   .store-note{color:var(--muted); font-size:.82rem}
@@ -229,7 +238,7 @@
     var loja = el.getAttribute('data-loja');
     if (!LOJAS[loja]) return;
     var a = document.createElement('a');
-    a.className = 'btn btn-primary';
+    a.className = 'btn btn-primary pulsa';
     a.href = LINKS[loja];
     a.textContent = ROTULOS[loja];
     el.parentNode.replaceChild(a, el);
